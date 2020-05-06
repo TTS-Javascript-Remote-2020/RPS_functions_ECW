@@ -16,6 +16,18 @@ const player2 = {
   score: 0,
 };
 
+const player3 = {
+  name: 'Simon',
+  getHand: getHand,
+  score: 0,
+};
+
+const player4 = {
+  name: 'Superman',
+  getHand: getHand,
+  score: 0,
+};
+
 function playRound(player1, player2) {
   let winner;
   hand1 = player1.getHand(hands);
@@ -50,5 +62,14 @@ function playGame(player1, player2, playUntil) {
   return player1.score > player2.score ? player1 : player2;
 }
 
+function playTournament(player1, player2, player3, player4, playUntil) {
+  const game1Winner = playGame(player1, player2, playUntil);
+  const game2Winner = playGame(player3, player4, playUntil);
+  const champ = playGame(game1Winner, game2Winner, playUntil);
+  console.log(`${champ.name} is the world champion!`)
+}
+
 const numOfGames = 5;
 console.log(`First player to ${numOfGames} is: ${playGame(player1, player2, numOfGames).name}`);
+
+playTournament(player1, player2, player3, player4, numOfGames);
