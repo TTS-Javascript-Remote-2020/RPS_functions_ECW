@@ -54,9 +54,7 @@ function playRound(player1, player2) {
 function playGame(player1, player2, playUntil) {
   do {
     let winner = playRound(player1, player2);
-    if (winner) {
-      winner.score++;
-    }
+    winner && winner.score++
   } while (player1.score < playUntil && player2.score < playUntil)
 
   return player1.score > player2.score ? player1 : player2;
