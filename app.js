@@ -44,8 +44,8 @@ function playRound(player1, player2) {
     winner = player2;
   }
 
-  console.log(`Player 1: ${hand1}`);
-  console.log(`Player 2: ${hand2}`);
+  console.log(`${player1.name}: ${hand1}`);
+  console.log(`${player2.name}: ${hand2}`);
   console.log(`Winner: ${winner.name ? winner.name : winner}`);
 
   return winner === 'Tie game :\\' ? null : winner;
