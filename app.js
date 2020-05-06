@@ -53,11 +53,14 @@ function playRound(player1, player2) {
 
 function playGame(player1, player2, playUntil) {
   do {
-    let winner = playRound(player1, player2);
-    winner && winner.score++
+    let roundWinner = playRound(player1, player2);
+    roundWinner && roundWinner.score++
   } while (player1.score < playUntil && player2.score < playUntil)
 
-  return player1.score > player2.score ? player1 : player2;
+  const matchWinner = player1.score > player2.score ? player1 : player2;
+  player2.score, player1.score = 0;
+
+  return matchWinner;
 }
 
 function playTournament(player1, player2, player3, player4, playUntil) {
@@ -68,6 +71,6 @@ function playTournament(player1, player2, player3, player4, playUntil) {
 }
 
 const numOfGames = 5;
-console.log(`First player to ${numOfGames} is: ${playGame(player1, player2, numOfGames).name}`);
 
+console.log(`First player to ${numOfGames} is: ${playGame(player1, player2, numOfGames).name}`);
 playTournament(player1, player2, player3, player4, numOfGames);
