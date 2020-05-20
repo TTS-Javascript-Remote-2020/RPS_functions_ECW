@@ -30,8 +30,8 @@ const player4 = {
 
 function playRound(player1, player2) {
   let winner;
-  hand1 = player1.getHand(hands);
-  hand2 = player2.getHand(hands);
+  const hand1 = player1.getHand(hands);
+  const hand2 = player2.getHand(hands);
 
   if (hand1 === hand2) {
     winner = 'Tie game :\\';
